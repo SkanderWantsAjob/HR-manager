@@ -35,6 +35,24 @@ public class Project extends BaseEntity  {
     @ManyToMany(mappedBy="projects")
     private Set<User> assignedTo;
 
+    public String UserToString(){
+        String b= "";
+        for (User user : assignedTo) {
+            
+            b += user.toString();
+        }
+        return b;
+    }
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + this.getId() +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", assignedTo=" + assignedTo +
+                ", createdDate=" + this.getCreatedDate() +
+                '}';
+    }
     
 
     

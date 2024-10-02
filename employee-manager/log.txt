@@ -1,0 +1,55 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.skander:employee-manager >--------------------
+[INFO] Building employee-manager api 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- spring-boot:3.3.2:start (default-cli) @ employee-manager ---
+[INFO] Attaching agents: []
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+
+2024-09-30T16:03:04.502+01:00  INFO 36004 --- [  restartedMain] c.s.e.EmployeeManagerApiApplication      : Starting EmployeeManagerApiApplication using Java 21.0.4 with PID 36004 (C:\Users\benac\OneDrive\Documents\spring boot\employee-manager\target\classes started by benac in C:\Users\benac\OneDrive\Documents\spring boot\employee-manager)
+2024-09-30T16:03:04.504+01:00  INFO 36004 --- [  restartedMain] c.s.e.EmployeeManagerApiApplication      : The following 1 profile is active: "dev"
+2024-09-30T16:03:04.565+01:00  INFO 36004 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-30T16:03:04.567+01:00  INFO 36004 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-30T16:03:06.122+01:00  INFO 36004 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-30T16:03:06.204+01:00  INFO 36004 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 4 JPA repository interfaces.
+2024-09-30T16:03:07.561+01:00  INFO 36004 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8088 (http)
+2024-09-30T16:03:07.581+01:00  INFO 36004 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-30T16:03:07.581+01:00  INFO 36004 --- [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-09-30T16:03:07.652+01:00  INFO 36004 --- [  restartedMain] o.a.c.c.C.[.[localhost].[/api/v1]        : Initializing Spring embedded WebApplicationContext
+2024-09-30T16:03:07.653+01:00  INFO 36004 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3085 ms
+2024-09-30T16:03:08.384+01:00  INFO 36004 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-30T16:03:08.462+01:00  INFO 36004 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-30T16:03:08.505+01:00  INFO 36004 --- [  restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-30T16:03:08.866+01:00  INFO 36004 --- [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-30T16:03:08.894+01:00  INFO 36004 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-30T16:03:09.077+01:00  INFO 36004 --- [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2927ff37
+2024-09-30T16:03:09.080+01:00  INFO 36004 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-30T16:03:09.116+01:00  WARN 36004 --- [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-30T16:03:10.338+01:00  INFO 36004 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-30T16:03:10.453+01:00  INFO 36004 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-30T16:03:11.352+01:00  INFO 36004 --- [  restartedMain] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2024-09-30T16:03:11.353+01:00  WARN 36004 --- [  restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2024-09-30T16:03:11.420+01:00  INFO 36004 --- [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-30T16:03:12.735+01:00  WARN 36004 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-30T16:03:13.748+01:00  INFO 36004 --- [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-09-30T16:03:14.810+01:00  INFO 36004 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-09-30T16:03:14.918+01:00  INFO 36004 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8088 (http) with context path '/api/v1'
+2024-09-30T16:03:14.948+01:00  INFO 36004 --- [  restartedMain] c.s.e.EmployeeManagerApiApplication      : Started EmployeeManagerApiApplication in 10.943 seconds (process running for 11.73)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.989 s
+[INFO] Finished at: 2024-09-30T16:03:15+01:00
+[INFO] ------------------------------------------------------------------------

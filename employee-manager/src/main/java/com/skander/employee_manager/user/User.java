@@ -15,18 +15,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.skander.employee_manager.department.Department;
 import com.skander.employee_manager.project.Project;
 import com.skander.employee_manager.role.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -61,10 +60,16 @@ public class User implements UserDetails, Principal {
     private String password;
     private boolean accountLocked;
     private boolean enabled;
-    @Enumerated(EnumType.STRING)
-    private Department department;
+    // @Enumerated(EnumType.STRING)
+    // @Column
+    // private Department department;
 
     @ManyToMany
+    @JoinTable(
+    name = "user_projects",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "project_id")
+)
     private Set<Project> projects;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -131,6 +136,16 @@ public class User implements UserDetails, Principal {
 
     public String getFullName() {
         return this.firstname + " " + this.lastname;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 
 
