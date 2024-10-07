@@ -9,13 +9,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-public interface ProjectRepository extends JpaRepository<Project, Integer>, JpaSpecificationExecutor<Project> {
+public interface ProjectRepository extends JpaRepository<Project, Long>, JpaSpecificationExecutor<Project> {
     Optional<Project> findByName (String project);
 
     @Query("""
             SELECT project
             FROM Project project
             """)
-    public Page<Project> findAllDisplayableProjects(Pageable pageable, Integer userId);
+    public Page<Project> findAllDisplayableProjects(Pageable pageable, Long userId);
     
 }

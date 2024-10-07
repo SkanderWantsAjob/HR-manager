@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -24,8 +23,6 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -49,7 +46,7 @@ public class User implements UserDetails, Principal {
 
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
 
     private String firstname;
     private String lastname;
@@ -64,13 +61,8 @@ public class User implements UserDetails, Principal {
     // @Column
     // private Department department;
 
-    @ManyToMany
-    @JoinTable(
-    name = "user_projects",
-    joinColumns = @JoinColumn(name = "user_id"),
-    inverseJoinColumns = @JoinColumn(name = "project_id")
-)
-    private Set<Project> projects;
+   @ManyToMany(fetch=FetchType.LAZY, mappedBy="assignedTo")
+    private List<Project> projects ;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
@@ -138,12 +130,19 @@ public class User implements UserDetails, Principal {
         return this.firstname + " " + this.lastname;
     }
 
+    public String toStringProjects(){
+        String r= "";
+        for (Project project : projects) {
+            r+= project.getName() + "11111 ";
+        }
+        return r;
+    }
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", projects='" + toStringProjects() + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

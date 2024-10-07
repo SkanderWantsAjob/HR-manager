@@ -1,6 +1,5 @@
 package com.skander.employee_manager.project;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,55 +29,33 @@ public class ProjectController {
     private final UserService userService;
     private final ProjectRepository projectRepository;
 
-    private void logFieldType(String fieldName, Object fieldValue) {
-        if (fieldValue != null) {
-            System.out.println(fieldName + " (" + fieldValue.getClass().getSimpleName() + "): " + fieldValue);
-        } else {
-            System.out.println(fieldName + " is null");
-        }
-    }
+    // private void logFieldType(String fieldName, Object fieldValue) {
+    //     if (fieldValue != null) {
+    //         System.out.println(fieldName + " (" + fieldValue.getClass().getSimpleName() + "): " + fieldValue);
+    //     } else {
+    //         System.out.println(fieldName + " is null");
+    //     }
+    // }
 
-    @PostMapping("path")
-    public ResponseEntity<Integer> saveProject(
+    @PostMapping("create")
+    public ResponseEntity<Long> saveProject(
         @Valid @RequestBody ProjectRequest request,
         Authentication connectedUser) {
         
-     // Adjust this based on your authentication mechanism
-
-    Project project = Project.builder()
-        .name(request.name())
-        .description(request.description()) 
-        .build();
-
-    System.out.println("Saving project:");
-    logFieldType("Name", project.getName());
-    logFieldType("Description", project.getDescription());
-
-    try {
-        projectRepository.save(project);
-    } catch (Exception e) {
-        System.err.println("Error saving project: " + e.getMessage());
-        e.printStackTrace();
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-    }
-
-    return ResponseEntity.status(HttpStatus.CREATED).body(project.getId()); 
-}
-// Return the saved project ID
-
-//         System.out.println("Assigned IDs: " + request.assignedTo());
-//         Set<User> assignedUsers = new HashSet<>(userService.getUsersByIds(request.assignedTo()));
-// System.out.println("Assigned Users: " + assignedUsers);
-
-//             System.out.println("dezodieznodinezidnAGGGGGGGGGGGGGGGGGGG");
-//         System.out.println(projectService.save(request, connectedUser));
-        
-//         return ResponseEntity.ok( projectService.save(request, connectedUser));
     
 
+
+        System.out.println("Assigned IDs: " + request.assignedTo());
+        Long id = projectService.save(request, connectedUser);
+        
+        return ResponseEntity.ok( id);
+    
+        }
+    
+    
     @GetMapping("{project-id}")
     public ResponseEntity<ProjectResponse> findProjectById (
-        @PathVariable("project-id") Integer projectid
+        @PathVariable("project-id") Long projectid
     ){
 
 

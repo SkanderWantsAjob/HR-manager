@@ -33,7 +33,7 @@ custom:
   security:
     jwt:
       secret-key:  YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXo=WWWWWWWWWWWWW
-      expiration: 8640000
+      expiration: 15040000
   mailing:
     frontend:
       activation-url: http://localhost:4200/activate-account

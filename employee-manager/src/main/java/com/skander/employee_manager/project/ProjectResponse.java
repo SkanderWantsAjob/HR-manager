@@ -2,9 +2,9 @@
 
 package com.skander.employee_manager.project;
 
-import java.util.Set;
+import java.util.List;
 
-import com.skander.employee_manager.user.User;
+import com.skander.employee_manager.user.UserResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,8 +19,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ProjectResponse {
     private String name;
-    private Integer id;
+    private Long id;
     private String description;
-    private Set<User> assignedTo;
+    private List<UserResponse> assignedTo;
 
 }

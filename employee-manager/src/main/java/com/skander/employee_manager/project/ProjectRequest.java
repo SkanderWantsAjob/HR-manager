@@ -2,7 +2,7 @@
 
 package com.skander.employee_manager.project;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -18,7 +18,7 @@ public record ProjectRequest (
 
     @NotNull(message= "103")
     @NotEmpty(message = "103")
-    Set<Integer> assignedTo
+    List<Long> assignedTo
 
 
 

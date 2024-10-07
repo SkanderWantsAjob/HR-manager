@@ -79,7 +79,7 @@ class AuthenticationService {
         var token = Token.builder()
             .token(generatedToken)
             .createdAt(LocalDateTime.now())
-            .expiresAt(LocalDateTime.now().plusMinutes(15))
+            .expiresAt(LocalDateTime.now().plusMinutes(100))
             .user(user)
             .build();
         try {

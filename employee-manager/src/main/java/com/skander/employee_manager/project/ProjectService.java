@@ -15,8 +15,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import com.skander.employee_manager.user.User;
+import com.skander.employee_manager.user.UserService;
 
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -25,16 +27,23 @@ import lombok.RequiredArgsConstructor;
 class ProjectService {
     private final ProjectRepository projectRepository;
     private final ProjectMapper projectMapper;
+    private final UserService userService;
 
-    public Integer save(ProjectRequest request, Authentication authentication){
+    @Transactional
+public Long save(ProjectRequest request, Authentication authentication) {
     Project project = projectMapper.toProject(request, authentication);
-    System.out.println("pipo" + project.toString());
-    System.out.println("papo "+ projectRepository.save(project));
-    return null;
+    
 
-    }
+    // Save the project with the assigned users included
+    project = projectRepository.save(project);
 
-    public ProjectResponse findById( Integer projectId){
+    // The project should now have its users properly set before it's saved.
+    System.out.println(project.toString());
+
+    return project.getId();
+}
+
+    public ProjectResponse findById( Long projectId){
         return projectRepository.findById(projectId)
             .map(projectMapper::toProjectResponse)
             .orElseThrow(() -> new EntityNotFoundException("no project found with that id"));
