@@ -1,0 +1,19 @@
+/* src/styles.css */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Makes the wrapper fill the viewport height */
+  }
+  
+  main {
+    flex-grow: 1;       /* Allows the main content to take up extra space */
+  }
+  
+  footer {
+    background-color: #f8f9fa;  /* Optional: Bootstrap's light background */
+    padding: 1rem;
+    text-align: center;
+  }
+  

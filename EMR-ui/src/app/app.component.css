@@ -1,0 +1,16 @@
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Makes wrapper fill the viewport height */
+  }
+  
+  main {
+    flex: 1; /* Makes the main content take up any extra space */
+  }
+  
+  footer {
+    background-color: #f8f9fa; /* Bootstrap's light color */
+    padding: 1rem;
+    text-align: center;
+  }
+  
