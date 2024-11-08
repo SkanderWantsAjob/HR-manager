@@ -1,0 +1,36 @@
+.hero {
+    background-image: url('../../../assets/image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .features {
+    background-color: #f8f9fa;
+  }
+  
+  .features .card {
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .login-register-section .card {
+    border-radius: 10px;
+  }
+  
+  .login-register-section form input {
+    border-radius: 8px;
+  }
+  
+  .login-register-section .btn {
+    border-radius: 8px;
+  }
+  .black-text {
+    color: black;
+  }
+  
